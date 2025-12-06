@@ -115,7 +115,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         className={`${styles.compactCard} flex items-start gap-3 !rounded-md`}
       >
         {/* صورة صغيرة */}
-        <div className="relative w-24 h-24 flex-shrink-0">
+        <div className="relative w-24 h-27 flex-shrink-0">
           <Image
             src={imageUrl}
             alt={title}
@@ -135,7 +135,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <p className="text-white text-sm font-medium line-clamp-2">
               {title}
             </p>
-            <div className="details flex items-center justify-start gap-3 font-semibold text-xs text-gray-200 mt-7">
+            <div className="details flex items-center justify-start gap-3 font-semibold text-xs text-gray-200 mt-5">
               {ranking && <span>#{ranking}</span>}
               {date && <span>{date}</span>}{" "}
               {duration && <span>{duration}</span>}
