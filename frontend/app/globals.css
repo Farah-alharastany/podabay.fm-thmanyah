@@ -75,6 +75,7 @@ input:focus {
 .products-list::-webkit-scrollbar {
   width: 5px;
   height: 5px;
+  position: absolute;
 }
 
 /* Track */

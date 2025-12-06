@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 
 export interface DropdownItem {
   label: string;
@@ -20,6 +21,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  // ✅ إغلاق عند الضغط خارج الدروب داون
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -36,12 +38,24 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
+  // ✅ إغلاق تلقائي عند أي Scroll (أفقي أو عمودي)
+  useEffect(() => {
+    const handleScroll = () => {
+      setOpen(false);
+    };
+
+    window.addEventListener("scroll", handleScroll, true);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll, true);
+    };
+  }, []);
+
   const handleButtonClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setOpen(!open);
   };
-
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>
@@ -59,44 +73,52 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
         </svg>
       </button>
 
-      {open && (
-        <div className="absolute right-0 top-full mt-1 z-[99999] min-w-[180px] transform-none">
-          <ul className="dropdown bg-gradient-to-tr from-[#404080] to-[#6B4080] rounded-lg shadow-xl text-white p-2 border border-white/10">
-            {items.map((item, index) => (
-              <React.Fragment key={`${item.label}-${index}`}>
-                <li className="px-3 py-2 text-xs rounded-md hover:bg-black/30 transition cursor-pointer">
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      onClick={() => {
-                        setOpen(false);
-                      }}
-                      className="block w-full text-left cursor-pointer"
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => {
-                        if (item.action) {
-                          item.action();
-                        }
-                        setOpen(false);
-                      }}
-                      className="w-full text-left cursor-pointer"
-                    >
-                      {item.label}
-                    </button>
+      {open &&
+        typeof window !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed z-[999999]"
+            style={{
+              top: buttonRef.current?.getBoundingClientRect().bottom ?? 0,
+              left: buttonRef.current
+                ? buttonRef.current.getBoundingClientRect().left - 150
+                : 0,
+            }}
+          >
+            <ul className="dropdown bg-gradient-to-tr from-[#404080] to-[#6B4080] rounded-lg shadow-xl text-white p-2 border border-white/10 min-w-[180px]">
+              {items.map((item, index) => (
+                <React.Fragment key={`${item.label}-${index}`}>
+                  <li className="px-3 py-2 text-xs rounded-md hover:bg-black/30 transition cursor-pointer">
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="block w-full text-left cursor-pointer"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          item.action?.();
+                          setOpen(false);
+                        }}
+                        className="w-full text-left cursor-pointer"
+                      >
+                        {item.label}
+                      </button>
+                    )}
+                  </li>
+
+                  {item.hasDivider && (
+                    <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-1" />
                   )}
-                </li>
-                {item.hasDivider && (
-                  <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-1" />
-                )}
-              </React.Fragment>
-            ))}
-          </ul>
-        </div>
-      )}
+                </React.Fragment>
+              ))}
+            </ul>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
