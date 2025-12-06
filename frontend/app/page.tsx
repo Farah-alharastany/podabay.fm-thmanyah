@@ -206,7 +206,7 @@ export default function Home() {
   return (
     <div className="flex items-start">
       <Sidebar />
-      <div className="content lg:w-[83%] lg:ml-[16.8%] w-full ml-0 mt-16">
+      <div className="content lg:w-[83%] lg:ml-[16.8%] w-full ml-0 pt-16">
         <HeaderContainer />
         {/* Container 1 */}
         <ProductsContainer

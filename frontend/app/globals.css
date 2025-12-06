@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background-color: hsla(236, 29%, 12%, 98%);
+  --background-color: #161727fa;
   --font-family: "BlinkMacSystemFont";
 }
 

@@ -45,7 +45,7 @@ export default function SearchPage() {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/search?term=${encodeURIComponent(term)}`
+        `http://localhost:4000/search?term=${encodeURIComponent(term)}`
       );
 
       if (!response.ok) {
@@ -116,7 +116,7 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="flex items-start min-h-screen bg-gray-900">
+    <div className="flex items-start min-h-screen bg-gray-900  pt-16">
       <Sidebar />
       <div className="content lg:w-[83%] lg:ml-[16.8%] w-full ml-0">
         <HeaderContainer searchTerm={searchTerm} onSearch={handleSearch} />
