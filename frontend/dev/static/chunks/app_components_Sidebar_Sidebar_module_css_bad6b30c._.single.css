@@ -1,0 +1,40 @@
+/* [project]/app/components/Sidebar/Sidebar.module.css [app-client] (css) */
+.Sidebar-module__sTeV3q__home-gradient:before, .Sidebar-module__sTeV3q__discover-gradient:before, .Sidebar-module__sTeV3q__my-queue-gradient:before, .Sidebar-module__sTeV3q__my-podcasts-gradient:before {
+  content: "";
+  -o-transition: .15s background;
+  filter: blur(10px);
+  transition: background .15s;
+  position: absolute;
+  inset: -3px 0 -3px -10px;
+}
+
+.Sidebar-module__sTeV3q__home-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #ba6fde33 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__discover-gradient:before {
+  background: -webkit-radial-gradient(0% 50%, 50% 25%, #3adee633 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__my-queue-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #4daee833 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__my-podcasts-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #cf816333 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__recents-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #ba6fde33 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__menuContainer {
+  background: #161727;
+  border-right: 1px solid #2e2e38;
+}
+
+.Sidebar-module__sTeV3q__titleText {
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=app_components_Sidebar_Sidebar_module_css_bad6b30c._.single.css.map*/

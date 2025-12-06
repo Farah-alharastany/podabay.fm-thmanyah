@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --background-color: hsla(236, 29%, 12%, 98%);
+  --font-family: "BlinkMacSystemFont";
+}
+
+@font-face {
+  font-family: "BlinkMacSystemFont";
+  src: url("/public/fonts/blinkmacsystemfont-regular") format("tff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BlinkMacSystemFont";
+  src: url("/public/fonts/blinkmacsystemfont-medium") format("tff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BlinkMacSystemFont";
+  src: url("/public/fonts/blinkmacsystemfont-semibold") format("tff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BlinkMacSystemFont";
+  src: url("/public/fonts/blinkmacsystemfont-bold") format("tff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: var(--font-family), sans-serif !important;
+  background-color: var(--background-color);
+}
+li {
+  position: relative !important;
+}
+input:not(
+    [type="image" i],
+    [type="range" i],
+    [type="checkbox" i],
+    [type="radio" i]
+  ) {
+  overflow-clip-margin: 0px !important;
+  overflow: clip !important;
+}
+input:focus {
+  border: 1px solid #fff !important;
+}
+
+.dropdown {
+  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2),
+    0px 5px 5px hsla(237, 25%, 12%, 50%);
+}
+.dropdown::after {
+  bottom: 100%;
+  right: 10px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: hsl(279, 23%, 46%);
+  border-width: 5px;
+}
+
+/* scrollbar */
+.products-list::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.products-list::-webkit-scrollbar-track {
+  background: transparent; /* إزالة الخلفية البيضاء */
+  border-radius: 10px;
+}
+
+/* Thumb */
+.products-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(to left bottom, #533e7d, #6b4080);
+  border-radius: 10px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Thumb hover */
+.products-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to left bottom, #7a5fff, #a04fff); /* هايلايت */
+  box-shadow: 0 0 6px rgba(122, 95, 255, 0.6); /* يعطي إحساس بأنه أكبر */
+  height: 20px;
+}
+p,
+a {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.compact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: -webkit-linear-gradient(top left, #456c91cc, #456c9166);
+  background: -moz-linear-gradient(top left, #456c91cc, #456c9166);
+  background: -o-linear-gradient(top left, #456c91cc, #456c9166);
+  background: linear-gradient(to bottom right, #456c91cc, #456c9166);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    background: -webkit-linear-gradient(
+      hsl(222deg 59%14%/98%),
+      hsl(236 26%12%/0)
+    ) !important;
+    background: -moz-linear-gradient(
+      hsl(222deg 59%14%/98%),
+      hsl(236 26%12%/0)
+    ) !important;
+    background: -o-linear-gradient(
+      hsl(222deg 59%14%/98%),
+      hsl(236 26%12%/0)
+    ) !important;
+    background: linear-gradient(
+      hsl(222deg 59%14%/98%),
+      hsl(236 26%12%/0)
+    ) !important;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) !important;
+    opacity: 1 !important;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    z-index: 10005;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+input.searchbar {
+  background-color: var(--background-color);
+}

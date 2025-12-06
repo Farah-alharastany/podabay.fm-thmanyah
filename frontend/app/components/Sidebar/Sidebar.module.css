@@ -1,0 +1,62 @@
+.home-gradient::before,
+.discover-gradient::before,
+.my-queue-gradient::before,
+.my-podcasts-gradient::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: 0px;
+  top: -3px;
+  bottom: -3px;
+  -webkit-transition: 150ms background;
+  -moz-transition: 150ms background;
+  -o-transition: 150ms background;
+  transition: 150ms background;
+  filter: blur(10px);
+}
+.home-gradient::before {
+  background: radial-gradient(
+    50%25%at 0%50%,
+    #ba6fde33 0%,
+    rgba(19, 241, 255, 0) 100%
+  ) !important;
+}
+.discover-gradient::before {
+  background: -webkit-radial-gradient(
+    0% 50%,
+    50% 25%,
+    #3adee633 0%,
+    rgba(19, 241, 255, 0) 100%
+  ) !important;
+}
+.my-queue-gradient::before {
+  background: radial-gradient(
+    50%25%at 0%50%,
+    #4daee833 0%,
+    rgba(19, 241, 255, 0) 100%
+  ) !important;
+}
+.my-podcasts-gradient::before {
+  background: radial-gradient(
+    50%25%at 0%50%,
+    #cf816333 0%,
+    rgba(19, 241, 255, 0) 100%
+  ) !important;
+}
+.recents-gradient::before {
+  background: radial-gradient(
+    50%25%at 0%50%,
+    #ba6fde33 0%,
+    rgba(19, 241, 255, 0) 100%
+  ) !important;
+}
+.menuContainer {
+  background: hsl(238, 27%, 12%);
+  border-right: 1px solid hsl(242, 10%, 20%);
+}
+.titleText {
+  font-size: 14px;
+}
+.menuItem:hover{
+
+}

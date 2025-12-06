@@ -1,0 +1,61 @@
+/* [project]/app/components/Sidebar/Sidebar.module.css [app-client] (css) */
+.Sidebar-module__sTeV3q__home-gradient:before, .Sidebar-module__sTeV3q__discover-gradient:before, .Sidebar-module__sTeV3q__my-queue-gradient:before, .Sidebar-module__sTeV3q__my-podcasts-gradient:before {
+  content: "";
+  -o-transition: .15s background;
+  filter: blur(10px);
+  transition: background .15s;
+  position: absolute;
+  inset: -3px 0 -3px -10px;
+}
+
+.Sidebar-module__sTeV3q__home-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #ba6fde33 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__discover-gradient:before {
+  background: -webkit-radial-gradient(0% 50%, 50% 25%, #3adee633 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__my-queue-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #4daee833 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__my-podcasts-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #cf816333 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__recents-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #ba6fde33 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__menuContainer {
+  background: #161727;
+  border-right: 1px solid #2e2e38;
+}
+
+.Sidebar-module__sTeV3q__titleText {
+  font-size: 14px;
+}
+
+/* [project]/app/components/Products/ProductCard.module.css [app-client] (css) */
+.ProductCard-module__8BLwlW__compactCard {
+  position: relative;
+  box-shadow: inset 0 1px 1px #2e2e38, 0 2px 4px #0000000d;
+}
+
+.ProductCard-module__8BLwlW__compactCard:before {
+  opacity: .2;
+  z-index: 0;
+  background: -webkit-linear-gradient(top left, #456c91cc, #456c9166);
+  background: -moz-linear-gradient(top left, #456c91cc, #456c9166);
+  background: -o-linear-gradient(top left, #456c91cc, #456c9166);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "" !important;
+  background: linear-gradient(to bottom right, #456c91cc, #456c9166) !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+/*# sourceMappingURL=app_components_5ce083ac._.css.map*/

@@ -1,0 +1,109 @@
+/* [project]/app/components/Loader/Loader.module.css [app-client] (css) */
+.Loader-module__YzaKMW__loaderContainer {
+  height: -webkit-calc(100vh - 300px);
+  height: -moz-calc(100vh - 300px);
+  place-items: center;
+  height: calc(100vh - 300px);
+  display: grid;
+}
+
+.Loader-module__YzaKMW__loaderInner {
+  position: relative;
+  transform: translateY(-50px);
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle:nth-child(3) {
+  border-color: #ff78c9;
+  animation-delay: -.2s;
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle:nth-child(2) {
+  border-color: #ba6fde;
+  animation-delay: -.4s;
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle:first-child {
+  border-color: #9b7dd9;
+  animation-delay: -.6s;
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle {
+  border: 2px solid #9b7dd9;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  animation: 2s cubic-bezier(.21, .53, .56, .8) infinite Loader-module__YzaKMW__loader;
+  position: absolute;
+  top: -2px;
+  left: -50px;
+}
+
+@-webkit-keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    -moz-transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    -moz-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: scale(1);
+  }
+}
+
+@-o-keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    -o-transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    -o-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/*# sourceMappingURL=app_components_Loader_Loader_module_css_bad6b30c._.single.css.map*/

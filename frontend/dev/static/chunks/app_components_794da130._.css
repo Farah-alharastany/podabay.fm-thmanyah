@@ -1,0 +1,169 @@
+/* [project]/app/components/Products/ProductCard.module.css [app-client] (css) */
+.ProductCard-module__8BLwlW__compactCard {
+  position: relative;
+  box-shadow: inset 0 1px 1px #2e2e38, 0 2px 4px #0000000d;
+}
+
+.ProductCard-module__8BLwlW__compactCard:before {
+  opacity: .2;
+  z-index: 0;
+  background: -webkit-linear-gradient(top left, #456c91cc, #456c9166);
+  background: -moz-linear-gradient(top left, #456c91cc, #456c9166);
+  background: -o-linear-gradient(top left, #456c91cc, #456c9166);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "" !important;
+  background: linear-gradient(to bottom right, #456c91cc, #456c9166) !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+/* [project]/app/components/Loader/Loader.module.css [app-client] (css) */
+.Loader-module__YzaKMW__loaderContainer {
+  height: -webkit-calc(100vh - 300px);
+  height: -moz-calc(100vh - 300px);
+  place-items: center;
+  height: calc(100vh - 300px);
+  display: grid;
+}
+
+.Loader-module__YzaKMW__loaderInner {
+  position: relative;
+  transform: translateY(-50px);
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle:nth-child(3) {
+  border-color: #ff78c9;
+  animation-delay: -.2s;
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle:nth-child(2) {
+  border-color: #ba6fde;
+  animation-delay: -.4s;
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle:first-child {
+  border-color: #9b7dd9;
+  animation-delay: -.6s;
+}
+
+.Loader-module__YzaKMW__loaderContainer .Loader-module__YzaKMW__loaderInner > .Loader-module__YzaKMW__circle {
+  border: 2px solid #9b7dd9;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  animation: 2s cubic-bezier(.21, .53, .56, .8) infinite Loader-module__YzaKMW__loader;
+  position: absolute;
+  top: -2px;
+  left: -50px;
+}
+
+@-webkit-keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    -moz-transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    -moz-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: scale(1);
+  }
+}
+
+@-o-keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    -o-transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    -o-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes Loader-module__YzaKMW__loader {
+  0% {
+    opacity: 1;
+    transform: scale(.1);
+  }
+
+  70% {
+    opacity: .7;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* [project]/app/components/Sidebar/Sidebar.module.css [app-client] (css) */
+.Sidebar-module__sTeV3q__home-gradient:before, .Sidebar-module__sTeV3q__discover-gradient:before, .Sidebar-module__sTeV3q__my-queue-gradient:before, .Sidebar-module__sTeV3q__my-podcasts-gradient:before {
+  content: "";
+  -o-transition: .15s background;
+  filter: blur(10px);
+  transition: background .15s;
+  position: absolute;
+  inset: -3px 0 -3px -10px;
+}
+
+.Sidebar-module__sTeV3q__home-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #ba6fde33 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__discover-gradient:before {
+  background: -webkit-radial-gradient(0% 50%, 50% 25%, #3adee633 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__my-queue-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #4daee833 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__my-podcasts-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #cf816333 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__recents-gradient:before {
+  background: radial-gradient(50% 25% at 0%, #ba6fde33 0%, #13f1ff00 100%) !important;
+}
+
+.Sidebar-module__sTeV3q__menuContainer {
+  background: #161727;
+  border-right: 1px solid #2e2e38;
+}
+
+.Sidebar-module__sTeV3q__titleText {
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=app_components_794da130._.css.map*/
