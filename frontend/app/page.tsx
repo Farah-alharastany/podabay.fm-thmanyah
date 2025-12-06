@@ -248,7 +248,7 @@ export default function Home() {
           products={fourthContainerData}
           containerType="special"
           availableViews={["grid", "scroll", "list", "compact"]}
-          cardTypeToShow="standard"
+          cardTypeToShow="grid"
           cardDropdownItems={fourthContainerCustomDropdown}
         />
       </div>

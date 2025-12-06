@@ -53,7 +53,6 @@ export default function SearchPage() {
       }
 
       const data = await response.json();
-      console.log(data);
       // تحويل البودكاستات إلى واجهة Product
       const formattedPodcasts = (data.podcasts || []).map(
         (podcast: any, index: number) => ({

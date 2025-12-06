@@ -9,26 +9,15 @@ import type {
   ViewType,
   Product,
   ProductCardType,
+  containerType,
+  ProductsContainerProps,
 } from "../types";
-
-interface ProductsContainerProps {
-  title: string;
-  description?: string;
-  products: Product[];
-  containerType?: "standard" | "special";
-  goToLink?: string;
-  goToLabel?: string;
-  availableViews?: ViewType[];
-  customDropdownItems?: DropdownItem[];
-  cardDropdownItems?: DropdownItem[];
-  cardTypeToShow?: ProductCardType;
-}
 
 const ProductsContainer: React.FC<ProductsContainerProps> = ({
   title,
   description,
   products,
-  containerType = "standard",
+  containerType,
   goToLink = "/trending",
   goToLabel = "Go to Trending Podcasts",
   availableViews = containerType === "special"
@@ -69,11 +58,10 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
         items.push({
           label:
             currentView === "scroll"
-              ? "Switch to Grid View"
-              : "Switch to Scroll View",
+              ? "Switch layout to Grid"
+              : "Switch layout to Scroll",
           action: () => {
             const newView = currentView === "scroll" ? "grid" : "scroll";
-            console.log(`🚀 Changing view to: ${newView}`);
             setCurrentView(newView);
             setDropdownKey((prev) => prev + 1);
           },
@@ -93,11 +81,10 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
         items.push({
           label:
             currentView === "grid"
-              ? "Switch to Scroll View"
-              : "Switch to Grid View",
+              ? "Switch layout to Scroll"
+              : "Switch layout to Grid",
           action: () => {
             const newView = currentView === "grid" ? "scroll" : "grid";
-            console.log(`🚀 Changing view to: ${newView}`);
             setCurrentView(newView);
             setDropdownKey((prev) => prev + 1);
           },
@@ -105,18 +92,16 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
       }
 
       items.push({
-        label: "List View",
+        label: "Switch layout to List",
         action: () => {
-          console.log(`🚀 ${title} - Switching to LIST view`);
           setCurrentView("list");
           setDropdownKey((prev) => prev + 1);
         },
       });
 
       items.push({
-        label: "Compact View",
+        label: "Switch layout to Compact",
         action: () => {
-          console.log(`🚀 ${title} - Switching to COMPACT view`);
           setCurrentView("compact");
           setDropdownKey((prev) => prev + 1);
         },
@@ -174,6 +159,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
         ref={scrollRef}
         cardType={currentCardType}
         dropdownItems={cardDropdownItems}
+        containerType={containerType}
       />
     </div>
   );

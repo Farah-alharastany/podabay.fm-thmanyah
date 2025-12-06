@@ -42,20 +42,6 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
     setOpen(!open);
   };
 
-  const handleItemClick = (action?: () => void, href?: string) => {
-    console.log("🖱️ Item clicked!");
-
-    if (action) {
-      console.log("🚀 Executing action...");
-      action();
-    }
-
-    if (href) {
-      console.log("🔗 Navigating to:", href);
-    }
-
-    setOpen(false);
-  };
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>
@@ -83,26 +69,21 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
                     <Link
                       href={item.href}
                       onClick={() => {
-                        console.log("🔗 LINK CLICKED:", item.label);
                         setOpen(false);
                       }}
-                      className="block w-full text-left"
+                      className="block w-full text-left cursor-pointer"
                     >
                       {item.label}
                     </Link>
                   ) : (
                     <button
                       onClick={() => {
-                        console.log("🎯 BUTTON CLICKED:", item.label);
-                        console.log("🎯 Action exists?", !!item.action);
-
                         if (item.action) {
-                          console.log("🚀 Calling action...");
                           item.action();
                         }
                         setOpen(false);
                       }}
-                      className="w-full text-left"
+                      className="w-full text-left cursor-pointer"
                     >
                       {item.label}
                     </button>

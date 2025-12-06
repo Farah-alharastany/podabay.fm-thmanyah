@@ -50,7 +50,7 @@ const NavigationArrows: React.FC<NavigationArrowsProps> = ({
   };
 
   return (
-    <div className="md:flex gap-1 hidden">
+    <div className="sm:flex gap-1 hidden">
       <button onClick={handleLeft} className="group p-1 cursor-pointer">
         <svg
           width="24"

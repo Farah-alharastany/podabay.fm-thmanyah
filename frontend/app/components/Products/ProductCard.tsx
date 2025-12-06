@@ -3,14 +3,7 @@ import Link from "next/link";
 import Dropdown from "../Buttons/Dropdown";
 import type { Product, ProductCardType, DropdownItem } from "../types";
 import styles from "./ProductCard.module.css";
-import { describe } from "node:test";
-
-interface ProductCardProps extends Product {
-  cardType?: ProductCardType;
-  onClick?: () => void;
-  dropdownItems?: DropdownItem[];
-  showDropdown?: boolean;
-}
+import { ProductCardProps } from "../types";
 
 const DYNAMIC_COLORS = [
   "#FF6B8B", // وردي
@@ -56,6 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   description,
   hrefLink = "#",
   cardType = "standard",
+  containerType,
   onClick,
   dropdownItems,
   showDropdown = true,
@@ -115,7 +109,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  if (cardType === "compact") {
+  if (cardType === "grid" && containerType === "special") {
     return (
       <div
         className={`${styles.compactCard} flex items-start gap-3 !rounded-md`}
@@ -219,7 +213,58 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
     );
   }
+  if (cardType === "compact") {
+    return (
+      <div className="group flex items-center gap-3 h-[60px] hover:bg-black/20 px-4 cursor-pointer border-b border-b-gray-800">
+        <div className="details flex items-center justify-start gap-3 font-medium text-xs text-gray-300">
+          {ranking && <span>#{ranking}</span>}
+        </div>
+        <div className="relative w-12 h-12 flex-shrink-0 p-2">
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className="object-cover rounded-sm group-hover:brightness-50 transition duration-200"
+            sizes="(max-width: 40px) 100vw, 40px"
+          />
 
+          <div className="absolute inset-0 py-3 items-center justify-center hidden group-hover:flex">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 11 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.94687 5.03128L1.69688 0.153936C1.02656 -0.242158 0 0.142218 0 1.1219V10.8742C0 11.7532 0.953906 12.2828 1.69688 11.8422L9.94687 6.96722C10.6828 6.53362 10.6852 5.46487 9.94687 5.03128Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+        <div className="content flex justify-between w-full py-2">
+          <div className="flex flex-col">
+            <p className="text-white text-sm font-medium line-clamp-1 hover:underline cursor-pointer">
+              {title}
+            </p>
+            <span
+              className="text-xs font-medium line-clamp-1"
+              style={{ color: artistColor }}
+            >
+              {artist || collectionName || "Unknown"}
+            </span>
+          </div>
+
+          {showDropdown && (
+            <div className="flex flex-col items-center justify-center gap-4">
+              <Dropdown items={itemsToUse} fillColor={"#6A7282"} />
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
   return (
     <Link
       href={hrefLink}

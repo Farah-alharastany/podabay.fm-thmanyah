@@ -14,7 +14,7 @@ interface HeaderContainerProps {
 
 const HeaderContainer: React.FC<HeaderContainerProps> = ({ searchTerm = "", onSearch }) => {
   return (
-    <div className="header fixed top-0 bg-[#161727fa] !z-10 lg:w-[83%] flex gap-2 justify-between items-center  lg:px-1 px-3 lg:!py-2 mt-0">
+    <div className="header fixed top-0 bg-[#161727fa] !z-10 lg:w-[83%] w-full flex gap-2 justify-between items-center  lg:px-1 px-3 py-3 lg:!py-2 mt-0">
       <Image
         src="/images/logo.svg"
         alt="Logo"
