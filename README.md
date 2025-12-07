@@ -109,7 +109,7 @@ npm run start:dev
 The server will start on:
 
 ```text
-http://localhost:3000
+http://localhost:4000
 ```
 
 (or based on your `main.ts` configuration)
@@ -238,18 +238,6 @@ http://localhost:3000
 
 ---
 
-## 🛑 Common Frontend Issues
-
-* ❌ **API not connecting**
-
-  * Make sure `NEXT_PUBLIC_API_URL` is correct
-  * Make sure the backend is running
-
-* ❌ **Environment variables not loading**
-
-  * Restart the dev server after editing `.env.local`
-
----
 
 ## 🧑‍🎨 Frontend Tech Stack
 
@@ -260,3 +248,4 @@ http://localhost:3000
 ---
 
 ✅ The frontend is now ready to communicate with the NestJS backend successfully.
+
