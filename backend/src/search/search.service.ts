@@ -71,6 +71,9 @@ export class SearchService {
           image: ep.artworkUrl600,
           audioUrl: ep.episodeUrl || ep.previewUrl || '',
           releaseDate: ep.releaseDate,
+          duration: ep.trackTimeMillis
+            ? `${Math.ceil(ep.trackTimeMillis / 1000 / 60)} min`
+            : undefined,
         });
 
         const savedEp = await this.episodeRepo.save(episode);

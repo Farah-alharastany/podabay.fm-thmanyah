@@ -7,7 +7,6 @@ export interface Product {
   image?: string;
   hrefLink?: string;
   description?: string;
-  releaseDate?: string;
   duration?: string;
   date?: string;
 }

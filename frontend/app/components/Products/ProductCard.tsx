@@ -124,7 +124,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             sizes="(max-width: 96px) 100vw, 96px"
           />
         </div>
-        <div className="content flex justify-between w-full p-2">
+        <div className="content flex justify-between w-full p-2  h-full">
           <div className="flex flex-col max-w-full">
             <span
               className="text-xs font-medium line-clamp-1"
@@ -135,7 +135,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <p className="text-white text-sm font-medium line-clamp-2">
               {title}
             </p>
-            <div className="details flex items-center justify-start gap-3 font-semibold text-xs text-gray-200 mt-5">
+            <div className="details flex items-center justify-start gap-3 font-semibold text-xs text-gray-200 mt-auto">
               {ranking && <span>#{ranking}</span>}
               {date && <span>{date}</span>}{" "}
               {duration && <span>{duration}</span>}
@@ -265,50 +265,52 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
     );
   }
-  return (
-    <Link
-      href={hrefLink}
-      className="card-container flex-shrink-0 w-[190px] rounded-sm snap-start"
-    >
-      <div className="relative w-full aspect-square mb-3">
-        <Image
-          src={imageUrl}
-          alt={title}
-          width={190}
-          height={190}
-          className="rounded-sm object-cover"
-          sizes="(max-width: 190px) 100vw, 190px"
-        />
-      </div>
-
-      <div className="ps-2">
-        <div className="flex justify-between items-start">
-          <div className="flex gap-2">
-            {ranking && (
-              <span className="text-gray-500 text-sm">#{ranking}</span>
-            )}
-            <div className="info min-w-0">
-              <div className="text-white font-medium hover:underline text-sm line-clamp-1">
-                {title}
-              </div>
-              <span
-                className="text-xs font-medium line-clamp-1"
-                style={{ color: artistColor }}
-              >
-                {artist || collectionName || "Unknown"}
-              </span>
-            </div>
-          </div>
-
-          {showDropdown && (
-            <div>
-              <Dropdown items={itemsToUse} fillColor={"#6A7282"} />
-            </div>
-          )}
+  if (cardType === "standard") {
+    return (
+      <Link
+        href={hrefLink}
+        className="card-container flex-shrink-0 w-[190px] rounded-sm snap-start"
+      >
+        <div className="relative w-full aspect-square mb-3">
+          <Image
+            src={imageUrl}
+            alt={title}
+            width={190}
+            height={190}
+            className="rounded-sm object-cover"
+            sizes="(max-width: 190px) 100vw, 190px"
+          />
         </div>
-      </div>
-    </Link>
-  );
+
+        <div className="ps-2">
+          <div className="flex justify-between items-start">
+            <div className="flex gap-2">
+              {ranking && (
+                <span className="text-gray-500 text-sm">#{ranking}</span>
+              )}
+              <div className="info min-w-0">
+                <div className="text-white font-medium hover:underline text-sm line-clamp-1">
+                  {title}
+                </div>
+                <span
+                  className="text-xs font-medium line-clamp-1"
+                  style={{ color: artistColor }}
+                >
+                  {artist || collectionName || "Unknown"}
+                </span>
+              </div>
+            </div>
+
+            {showDropdown && (
+              <div>
+                <Dropdown items={itemsToUse} fillColor={"#6A7282"} />
+              </div>
+            )}
+          </div>
+        </div>
+      </Link>
+    );
+  }
 };
 
 export default ProductCard;

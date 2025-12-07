@@ -54,6 +54,16 @@ export default function SearchPage() {
           },
         })
       );
+      const formatDate = (dateString: string) => {
+        if (!dateString) return "";
+
+        const date = new Date(dateString);
+
+        return date.toLocaleDateString("en-US", {
+          day: "numeric",
+          month: "short",
+        });
+      };
 
       const formattedEpisodes = (data.episodes || []).map(
         (episode: any, index: number) => ({
@@ -68,9 +78,10 @@ export default function SearchPage() {
             episode.artworkUrl600 ||
             "/images/default-episode.jpg",
           hrefLink: episode.audioUrl || "#",
+          date: formatDate(episode.releaseDate),
+          duration: episode.duration,
           metadata: {
             type: "episode",
-            releaseDate: episode.releaseDate,
             audioUrl: episode.audioUrl,
           },
         })
@@ -138,7 +149,7 @@ export default function SearchPage() {
                     products={episodes}
                     containerType="episodes-container"
                     availableViews={["grid", "scroll", "list", "compact"]}
-                    cardTypeToShow="standard"
+                    cardTypeToShow="grid"
                   />
                 </div>
               )}

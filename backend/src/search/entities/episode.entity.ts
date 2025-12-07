@@ -29,6 +29,9 @@ export class Episode {
   @Column()
   itunesCollectionId: string;
 
+  @Column({ type: 'varchar', nullable: true })
+  duration?: string;
+
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
