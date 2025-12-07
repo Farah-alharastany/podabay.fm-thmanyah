@@ -18,8 +18,8 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
   description,
   products,
   containerType,
-  goToLink = "/trending",
-  goToLabel = "Go to Trending Podcasts",
+  goToLink,
+  goToLabel,
   availableViews = containerType === "special"
     ? ["grid", "scroll", "list", "compact"]
     : ["scroll", "grid"],
@@ -65,14 +65,15 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
             setCurrentView(newView);
             setDropdownKey((prev) => prev + 1);
           },
-          hasDivider: true,
+          hasDivider: goToLabel && goToLink ? true : false,
         });
       }
-
-      items.push({
-        label: goToLabel,
-        href: goToLink,
-      });
+      if (goToLabel && goToLink) {
+        items.push({
+          label: goToLabel,
+          href: goToLink,
+        });
+      }
     } else if (containerType === "special") {
       if (
         availableViews.includes("grid") &&
@@ -105,13 +106,15 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
           setCurrentView("compact");
           setDropdownKey((prev) => prev + 1);
         },
-        hasDivider: true,
+        hasDivider: goToLabel && goToLink ? true : false,
       });
 
-      items.push({
-        label: goToLabel,
-        href: goToLink,
-      });
+      if (goToLabel && goToLink) {
+        items.push({
+          label: goToLabel,
+          href: goToLink,
+        });
+      }
     }
 
     return items;

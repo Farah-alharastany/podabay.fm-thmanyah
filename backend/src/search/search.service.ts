@@ -66,6 +66,7 @@ export class SearchService {
           itunesId: ep.trackId,
           title: ep.trackName,
           collectionName: ep.collectionName,
+          itunesCollectionId: ep.collectionId,
           description: ep.shortDescription,
           image: ep.artworkUrl600,
           audioUrl: ep.episodeUrl || ep.previewUrl || '',

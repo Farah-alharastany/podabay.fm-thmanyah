@@ -13,7 +13,7 @@ export class Episode {
   title: string;
   @Column()
   collectionName: string;
-  
+
   @Column('text', { nullable: true })
   description: string;
 
@@ -26,8 +26,8 @@ export class Episode {
   @Column()
   releaseDate: string;
 
-  @ManyToOne(() => Podcast, (podcast) => podcast.episodes)
-  podcast: Podcast;
+  @Column()
+  itunesCollectionId: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;

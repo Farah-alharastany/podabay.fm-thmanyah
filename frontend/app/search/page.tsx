@@ -71,7 +71,6 @@ export default function SearchPage() {
         })
       );
 
-      // تحويل الحلقات إلى واجهة Product
       const formattedEpisodes = (data.episodes || []).map(
         (episode: any, index: number) => ({
           id: episode.id || episode.itunesId || 10000 + index,
@@ -104,7 +103,6 @@ export default function SearchPage() {
 
   const handleSearch = (term: string) => {
     if (term.trim()) {
-      // تحديث الـ URL بدون إعادة تحميل الصفحة
       window.history.pushState(
         {},
         "",
@@ -120,12 +118,9 @@ export default function SearchPage() {
       <div className="content lg:w-[83%] lg:ml-[16.8%] w-full ml-0">
         <HeaderContainer searchTerm={searchTerm} onSearch={handleSearch} />
 
-        {/* المحتوى الرئيسي */}
         <div className="max-w-7xl mx-auto">
-          {/* حالة التحميل */}
           {loading && <Loader />}
 
-          {/* رسالة الخطأ */}
           {error && (
             <div className="bg-red-900/30 border border-red-700 rounded-xl p-6 mb-6">
               <h3 className="text-red-300 font-bold mb-2">Search Error</h3>
@@ -139,26 +134,19 @@ export default function SearchPage() {
             </div>
           )}
 
-          {/* عرض النتائج */}
           {!loading && !error && (
             <>
-              {/* البودكاستات - بتصميم standard */}
               {podcasts.length > 0 && (
                 <div className="mb-10">
                   <ProductsContainer
                     title={`Top podcasts for ${searchTerm}`}
                     products={podcasts}
                     containerType="standard"
-                    goToLink={`/search/podcasts?term=${encodeURIComponent(
-                      searchTerm
-                    )}`}
-                    goToLabel={`View all ${podcasts.length} podcasts →`}
                     cardTypeToShow="standard"
                   />
                 </div>
               )}
 
-              {/* الحلقات - بتصميم compact */}
               {episodes.length > 0 && (
                 <div className="mb-10">
                   <ProductsContainer
@@ -166,7 +154,7 @@ export default function SearchPage() {
                     products={episodes}
                     containerType="special"
                     availableViews={["grid", "scroll", "list", "compact"]}
-                    cardTypeToShow="standard"
+                    cardTypeToShow="compact"
                   />
                 </div>
               )}

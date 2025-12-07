@@ -21,9 +21,6 @@ export class Podcast {
   @Column()
   collectionViewUrl: string;
 
-  @OneToMany(() => Episode, (episode) => episode.podcast, { cascade: true })
-  episodes: Episode[];
-
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
