@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "All genres",
+    "hrefLink": "/",
+    "image": "/images/all-genres-1.png"
+  },
+  {
+    "id": 2,
+    "title": "Arts",
+    "hrefLink": "/",
+    "image": "/images/genre-2.png"
+  },
+  {
+    "id": 3,
+    "title": "Comedy",
+    "hrefLink": "/",
+    "image": "/images/genre-3.png"
+  },
+  {
+    "id": 4,
+    "title": "Education",
+    "hrefLink": "/",
+    "image": "/images/genre-4.png"
+  },
+  {
+    "id": 5,
+    "title": "Kids & Family",
+    "hrefLink": "/",
+    "image": "/images/genre-5.png"
+  },
+  {
+    "id": 6,
+    "title": "TV & Film",
+    "hrefLink": "/",
+    "image": "/images/genre-6.png"
+  },
+  {
+    "id": 7,
+    "title": "Music",
+    "hrefLink": "/",
+    "image": "/images/all-genres-1.png"
+  },
+  {
+    "id": 8,
+    "title": "Religion and Spirituality",
+    "hrefLink": "/",
+    "image": "/images/genre-5.png"
+  },
+  {
+    "id": 9,
+    "title": "Technology",
+    "hrefLink": "/",
+    "image": "/images/genre-4.png"
+  },
+  {
+    "id": 10,
+    "title": "Busiens",
+    "hrefLink": "/",
+    "image": "/images/genre-3.png"
+  },
+  {
+    "id": 11,
+    "title": "TV & Film",
+    "hrefLink": "/",
+    "image": "/images/genre-2.png"
+  },
+  {
+    "id": 12,
+    "title": "Music",
+    "hrefLink": "/",
+    "image": "/images/all-genres-1.png"
+  }
+]
