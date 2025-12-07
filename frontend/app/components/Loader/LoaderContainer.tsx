@@ -4,6 +4,7 @@ const Loader = () => {
   return (
     <div className={styles.loaderContainer}>
       <div className={styles.loaderInner}>
+        {/* Loader circles */}
         <div className={styles.circle}></div>
         <div className={styles.circle}></div>
         <div className={styles.circle}></div>

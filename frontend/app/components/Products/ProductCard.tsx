@@ -5,29 +5,32 @@ import type { Product, ProductCardType, DropdownItem } from "../types";
 import styles from "./ProductCard.module.css";
 import { ProductCardProps } from "../types";
 
+// Predefined dynamic colors for artists
 const DYNAMIC_COLORS = [
-  "#FF6B8B", // وردي
-  "#4ECDC4", // تركواز
-  "#FFD166", // أصفر
-  "#06D6A0", // أخضر
-  "#118AB2", // أزرق
-  "#EF476F", // وردي فاتح
-  "#7209B7", // بنفسجي
-  "#F3722C", // برتقالي
-  "#577590", // أزرق رمادي
-  "#90BE6D", // أخضر فاتح
-  "#F94144", // أحمر
-  "#43AA8B", // أخضر مزرق
-  "#F8961E", // برتقالي غامق
-  "#5778A8", // أزرق متوسط
-  "#277DA1", // أزرق محيطي
+  "#FF6B8B", // Pink
+  "#4ECDC4", // Turquoise
+  "#FFD166", // Yellow
+  "#06D6A0", // Green
+  "#118AB2", // Blue
+  "#EF476F", // Light Pink
+  "#7209B7", // Purple
+  "#F3722C", // Orange
+  "#577590", // Grayish Blue
+  "#90BE6D", // Light Green
+  "#F94144", // Red
+  "#43AA8B", // Teal
+  "#F8961E", // Dark Orange
+  "#5778A8", // Medium Blue
+  "#277DA1", // Ocean Blue
 ];
 
+// Assign a color to artist based on their ID
 const getArtistColor = (id: number): string => {
   const colorIndex = id % DYNAMIC_COLORS.length;
   return DYNAMIC_COLORS[colorIndex];
 };
 
+// Generate a color based on a string hash
 const getColorFromText = (text: string): string => {
   let hash = 0;
   for (let i = 0; i < text.length; i++) {
@@ -67,6 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   const itemsToUse = dropdownItems || defaultDropdownItems;
 
+  // Image-only card type
   if (cardType === "image-only") {
     return (
       <Link
@@ -93,6 +97,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
+  // Button card type
   if (cardType === "button") {
     return (
       <div className="relative w-36 h-36 flex-shrink-0">
@@ -109,12 +114,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
+  // Grid card for episodes container
   if (cardType === "grid" && containerType === "episodes-container") {
     return (
       <div
         className={`${styles.compactCard} flex items-start gap-3 !rounded-md  min-h-[120px] min-w-[300px]`}
       >
-        {/* صورة صغيرة */}
+        {/* Small image */}
         <div className="relative w-28 h-32 flex-shrink-0">
           <Image
             src={imageUrl}
@@ -142,7 +148,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </div>
 
-          {/* الدروب داون للكومباكت */}
+          {/* Dropdown for compact card */}
           {showDropdown && (
             <div>
               <Dropdown items={itemsToUse} fillColor={"#6A7282"} />
@@ -153,6 +159,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
+  // List card type
   if (cardType === "list") {
     return (
       <div className="group flex items-center gap-3 hover:bg-black/20 px-4 cursor-pointer">
@@ -213,6 +220,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
     );
   }
+
+  // Compact card type
   if (cardType === "compact") {
     return (
       <div className="group flex items-center gap-3 h-[60px] hover:bg-black/20 px-4 cursor-pointer border-b border-b-gray-800">
@@ -265,6 +274,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
     );
   }
+
+  // Standard card type
   if (cardType === "standard") {
     return (
       <Link

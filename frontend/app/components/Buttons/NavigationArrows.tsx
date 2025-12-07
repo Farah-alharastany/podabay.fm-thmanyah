@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 interface NavigationArrowsProps {
   scrollRef?: React.RefObject<HTMLDivElement | null>;
   scrollAmount?: number;
+  //It can be user to scroll left & right or can be used to navigate
   type?: "scroll" | "history";
 }
 

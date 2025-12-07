@@ -14,6 +14,7 @@ interface MenuItem {
   children?: MenuItem[];
 }
 
+// Sidebar menu configuration
 const menuItems: MenuItem[] = [
   {
     name: "Home",
@@ -61,6 +62,7 @@ const Sidebar: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Navigate to a given path
   const handleNavigation = (path?: string) => {
     if (path) router.push(path);
   };
@@ -69,12 +71,16 @@ const Sidebar: FC = () => {
     <div
       className={`${styles.menuContainer} fixed left-0 top-0 w-2/12 min-h-screen p-4 flex-col lg:flex hidden`}
     >
+      {/* Logo */}
       <Image src="/images/logo.svg" alt="Logo" width="45" height="50"></Image>
+
+      {/* Menu items */}
       <ul className=" mt-8">
         {menuItems.map((item) => {
           if (item.children) {
             return (
               <section key={item.name}>
+                {/* Section title */}
                 <p className="!mt-4 mb-2 text-xs py-1 text-gray-400 uppercase font-bold">
                   {item.name}
                 </p>
@@ -89,6 +95,7 @@ const Sidebar: FC = () => {
                           isActive ? " text-[#BA6FDE]" : "text-white"
                         }`}
                       >
+                        {/* Icon */}
                         <Image
                           src={
                             isActive ? child.activeIcon ?? "" : child.icon ?? ""
@@ -97,6 +104,7 @@ const Sidebar: FC = () => {
                           width={20}
                           height={20}
                         ></Image>
+                        {/* Item name */}
                         <span className={styles.titleText}>{child.name}</span>
                       </li>
                     );
@@ -117,17 +125,21 @@ const Sidebar: FC = () => {
                   : "text-white "
               }`}
             >
+              {/* Icon */}
               <Image
                 src={isActive ? item.activeIcon ?? "" : item.icon ?? ""}
                 alt={item.name}
                 width={20}
                 height={20}
               />
+              {/* Item name */}
               <span className={styles.titleText}>{item.name}</span>
             </li>
           );
         })}
       </ul>
+
+      {/* Sidebar footer */}
       <div className="footer text-gray-400 text-xs mt-auto">
         <p>
           Podbay v2.9.6 by{" "}

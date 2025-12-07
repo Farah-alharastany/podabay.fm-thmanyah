@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect, useRef } from "react";
 
 interface SearchbarProps {
@@ -15,23 +15,23 @@ const Searchbar: React.FC<SearchbarProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // التحقق من المسار الحالي عند تحميل المكون
+    // Check current path when component mounts
     const pathname = window.location.pathname;
     setIsSearchPage(pathname === "/search");
 
-    // إذا كان هناك initialTerm، عينه
+    // Set initial term if provided
     if (initialTerm) {
       setSearchTerm(initialTerm);
     }
   }, [initialTerm]);
 
-  // تركيز تلقائي عند فتح صفحة البحث
+  // Auto-focus input when on search page
   useEffect(() => {
     if (isSearchPage && inputRef.current) {
       setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.focus();
-          // وضع المؤشر في نهاية النص
+          // Place cursor at the end of text
           if (searchTerm) {
             inputRef.current.setSelectionRange(
               searchTerm.length,
@@ -45,7 +45,7 @@ const Searchbar: React.FC<SearchbarProps> = ({
 
   const handleFocus = () => {
     if (!isSearchPage) {
-      // إذا كنا في الصفحة الرئيسية، انقل إلى صفحة البحث
+      // If on home page, navigate to search page
       if (searchTerm.trim()) {
         window.location.href = `/search?term=${encodeURIComponent(
           searchTerm.trim()
@@ -59,12 +59,12 @@ const Searchbar: React.FC<SearchbarProps> = ({
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && searchTerm.trim()) {
       if (isSearchPage) {
-        // إذا كنا في صفحة البحث، استخدم onSearch
+        // If on search page, use onSearch callback
         if (onSearch) {
           onSearch(searchTerm);
         }
       } else {
-        // إذا كنا في الصفحة الرئيسية، انتقل إلى صفحة البحث
+        // If on home page, navigate to search page
         window.location.href = `/search?term=${encodeURIComponent(
           searchTerm.trim()
         )}`;
@@ -75,11 +75,6 @@ const Searchbar: React.FC<SearchbarProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
-
-    // إذا كان في صفحة البحث ونريد بحث في الوقت الحقيقي (اختياري)
-    // if (isSearchPage && onSearch) {
-    //   onSearch(value);
-    // }
   };
 
   return (

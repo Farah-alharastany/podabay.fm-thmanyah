@@ -31,6 +31,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
   const [currentView, setCurrentView] = useState<ViewType>(availableViews[0]);
   const [dropdownKey, setDropdownKey] = useState(0);
 
+  // Determine the card type to render based on the current view
   const getCardTypeForView = (view: ViewType): ProductCardType => {
     if (view === "compact") {
       return "compact";
@@ -42,16 +43,17 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
 
   const currentCardType = getCardTypeForView(currentView);
 
+  // Compute dropdown items for container
   const dropdownItems = useMemo(() => {
     if (customDropdownItems) {
       return customDropdownItems;
     }
 
     const items: DropdownItem[] = [];
-      console.log("containerType:", containerType);
+    console.log("containerType:", containerType);
 
     if (containerType === "podcasts-container") {
-
+      // Add toggle between scroll and grid layouts
       if (
         availableViews.includes("scroll") &&
         availableViews.includes("grid")
@@ -76,6 +78,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
         });
       }
     } else if (containerType === "episodes-container") {
+      // Add toggle between grid and scroll layouts
       if (
         availableViews.includes("grid") &&
         availableViews.includes("scroll")
@@ -93,6 +96,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
         });
       }
 
+      // Add options to switch to list or compact views
       items.push({
         label: "Switch layout to List",
         action: () => {
@@ -131,6 +135,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
 
   return (
     <div className="w-full mt-7">
+      {/* Header section with title and description */}
       <div className="flex ps-4 pe-2 items-center justify-between border-b border-b-gray-700 w-full">
         <div className="top-section py-3">
           <Link href="/" className="text-white font-semibold hover:underline">
@@ -143,6 +148,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
           )}
         </div>
 
+        {/* Navigation arrows and dropdown button */}
         <div className="buttons flex items-center justify-between gap-2">
           <NavigationArrows
             type="scroll"
@@ -157,6 +163,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
         </div>
       </div>
 
+      {/* Products list component */}
       <ProductsList
         products={products}
         view={currentView}

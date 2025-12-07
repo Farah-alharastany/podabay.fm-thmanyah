@@ -16,7 +16,7 @@ export default function SearchPage() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("term") || "";
 
-  // جلب البيانات عند تحميل الصفحة أو تغيير مصطلح البحث
+  // Fetch data when the page loads or search term changes
   useEffect(() => {
     if (searchTerm.trim()) {
       fetchSearchResults(searchTerm);
@@ -37,7 +37,8 @@ export default function SearchPage() {
       }
 
       const data = await response.json();
-      // تحويل البودكاستات إلى واجهة Product
+
+      // Format podcasts into Product interface
       const formattedPodcasts = (data.podcasts || []).map(
         (podcast: any, index: number) => ({
           id: podcast.id || podcast.itunesId || index,
@@ -54,6 +55,8 @@ export default function SearchPage() {
           },
         })
       );
+
+      // Helper function to format episode dates
       const formatDate = (dateString: string) => {
         if (!dateString) return "";
 
@@ -65,6 +68,7 @@ export default function SearchPage() {
         });
       };
 
+      // Format episodes into Product interface
       const formattedEpisodes = (data.episodes || []).map(
         (episode: any, index: number) => ({
           id: episode.id || episode.itunesId || 10000 + index,
@@ -72,7 +76,6 @@ export default function SearchPage() {
           collectionName: episode.collectionName,
           description:
             episode.description?.substring(0, 50) + "..." || "No description",
-
           image:
             episode.image ||
             episode.artworkUrl600 ||
@@ -96,6 +99,7 @@ export default function SearchPage() {
     }
   };
 
+  // Handle search from header
   const handleSearch = (term: string) => {
     if (term.trim()) {
       window.history.pushState(
@@ -131,6 +135,7 @@ export default function SearchPage() {
 
           {!loading && !error && (
             <>
+              {/* Display podcasts if available */}
               {podcasts.length > 0 && (
                 <div className="mb-10">
                   <ProductsContainer
@@ -142,6 +147,7 @@ export default function SearchPage() {
                 </div>
               )}
 
+              {/* Display episodes if available */}
               {episodes.length > 0 && (
                 <div className="mb-10">
                   <ProductsContainer
@@ -154,7 +160,7 @@ export default function SearchPage() {
                 </div>
               )}
 
-              {/* حالة عدم وجود نتائج */}
+              {/* No results found */}
               {podcasts.length === 0 && episodes.length === 0 && searchTerm && (
                 <div className="text-center py-16">
                   <h3 className="text-2xl font-bold mb-3 text-center text-gray-400 mt-20">
@@ -167,7 +173,7 @@ export default function SearchPage() {
                 </div>
               )}
 
-              {/* حالة البحث الأولي */}
+              {/* Initial state before search */}
               {!searchTerm && (
                 <div className="text-center text-gray-400 mt-20 font-medium">
                   Type in a search term to start.{" "}
