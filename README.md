@@ -4,6 +4,28 @@
 
 # 🎧 Podcast Platform – Full Stack Setup Guide
 
+## 📌 Project Overview
+
+**podabay.fm-thmanyah** is a full-stack podcast streaming and discovery platform that allows users to:
+
+* 🔍 Search for podcasts and individual episodes
+* 🎧 Explore trending podcasts and featured episodes
+
+The project is built with a **modern full-stack architecture**:
+
+* **Frontend:** Next.js + React + Tailwind CSS
+* **Backend:** NestJS + TypeORM + PostgreSQL
+
+The frontend communicates with the backend through REST APIs to fetch podcast data, episodes, and search results in real-time.
+
+It is designed to be:
+
+* ✅ Scalable
+* ✅ SEO-friendly
+* ✅ Developer-friendly for team collaboration
+
+---
+
 This repository contains both the **Backend (NestJS)** and the **Frontend (Next.js)** for the Podcast platform.
 
 ---
@@ -87,7 +109,7 @@ npm run start:dev
 The server will start on:
 
 ```text
-http://localhost:4000
+http://localhost:3000
 ```
 
 (or based on your `main.ts` configuration)
@@ -173,9 +195,21 @@ npm install
 
 ---
 
+### 2️⃣ Create `.env` File for Frontend
+
+Create a `.env.local` file in the frontend root and add:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+> ⚠️ This should match your backend URL.
+
+---
+
 ## 🚀 Running the Frontend
 
-### 2️⃣ Run in Development Mode
+### 3️⃣ Run in Development Mode
 
 ```bash
 npm run dev
@@ -204,6 +238,19 @@ http://localhost:3000
 
 ---
 
+## 🛑 Common Frontend Issues
+
+* ❌ **API not connecting**
+
+  * Make sure `NEXT_PUBLIC_API_URL` is correct
+  * Make sure the backend is running
+
+* ❌ **Environment variables not loading**
+
+  * Restart the dev server after editing `.env.local`
+
+---
+
 ## 🧑‍🎨 Frontend Tech Stack
 
 * **Next.js**
@@ -213,5 +260,3 @@ http://localhost:3000
 ---
 
 ✅ The frontend is now ready to communicate with the NestJS backend successfully.
-
-
