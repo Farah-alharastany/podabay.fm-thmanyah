@@ -6,6 +6,8 @@ import firstContainerData from "./data/first-container-data.json";
 import secondContainerData from "./data/second-container-data.json";
 import thirdContainerData from "./data/third-container-data.json";
 import fourthContainerData from "./data/fourth-container-data.json";
+import Head from "next/head";
+
 export default function Home() {
   const fourthContainerCustomDropdown: DropdownItem[] = [
     { label: "Play episode" },
@@ -17,6 +19,9 @@ export default function Home() {
   ];
   return (
     <div className="flex items-start">
+      <Head>
+        <title>عنوان الصفحة الجديد</title>
+      </Head>
       <Sidebar />
       <div className="content lg:w-[83%] lg:ml-[16.8%] w-full ml-0 pt-16">
         <HeaderContainer />

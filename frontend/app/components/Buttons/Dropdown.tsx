@@ -21,7 +21,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // ✅ إغلاق عند الضغط خارج الدروب داون
+  // Action when user clicks outside dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -38,7 +38,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
-  // ✅ إغلاق تلقائي عند أي Scroll (أفقي أو عمودي)
+  // Closing dropdonw when user scrolls
   useEffect(() => {
     const handleScroll = () => {
       setOpen(false);

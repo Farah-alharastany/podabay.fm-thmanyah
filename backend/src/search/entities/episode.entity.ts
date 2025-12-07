@@ -11,6 +11,7 @@ export class Episode {
 
   @Column()
   title: string;
+  
   @Column()
   collectionName: string;
 

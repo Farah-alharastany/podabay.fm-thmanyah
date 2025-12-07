@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 interface NavigationArrowsProps {
   scrollRef?: React.RefObject<HTMLDivElement | null>;
@@ -15,9 +15,6 @@ const NavigationArrows: React.FC<NavigationArrowsProps> = ({
   type = "scroll",
 }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const hasQuery = searchParams && Array.from(searchParams.keys()).length > 0;
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : "";
 
   const handleLeft = () => {
     if (type === "scroll") {
@@ -25,12 +22,7 @@ const NavigationArrows: React.FC<NavigationArrowsProps> = ({
         scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
     } else if (type === "history") {
-      if (pathname === "/search" && !hasQuery) {
-        // تخطّي صفحة /search بالـ history — ارجع للي قبلها
-        window.history.go(-2);
-      } else {
-        window.history.back();
-      }
+      window.history.back();
     }
   };
 
@@ -40,12 +32,7 @@ const NavigationArrows: React.FC<NavigationArrowsProps> = ({
         scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     } else if (type === "history") {
-      if (pathname === "/search" && !hasQuery) {
-        // تخطّي /search إلى الصفحة بعده
-        window.history.go(2);
-      } else {
-        window.history.forward();
-      }
+      window.history.forward();
     }
   };
 

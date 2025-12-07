@@ -157,58 +157,13 @@ export default function SearchPage() {
               {/* حالة عدم وجود نتائج */}
               {podcasts.length === 0 && episodes.length === 0 && searchTerm && (
                 <div className="text-center py-16">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-800 rounded-full mb-6">
-                    <span className="text-3xl">🔍</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">No results found</h3>
-                  <p className="text-gray-400 mb-8 max-w-md mx-auto">
+                  <h3 className="text-2xl font-bold mb-3 text-center text-gray-400 mt-20">
+                    No results found
+                  </h3>
+                  <p className="text-center text-gray-400 mt-5 font-medium">
                     We couldn't find any podcasts or episodes matching "
                     {searchTerm}"
                   </p>
-
-                  <div className="bg-gray-800/30 rounded-xl p-6 max-w-md mx-auto">
-                    <h4 className="font-medium mb-3">Suggestions:</h4>
-                    <ul className="text-gray-400 text-sm space-y-2 text-left">
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#7a7af0]">•</span>
-                        Try different or more general keywords
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#7a7af0]">•</span>
-                        Check your spelling
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#7a7af0]">•</span>
-                        Try fewer keywords
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#7a7af0]">•</span>
-                        Browse popular categories
-                      </li>
-                    </ul>
-
-                    <div className="mt-6 pt-6 border-t border-gray-700">
-                      <h4 className="font-medium mb-3">Popular searches:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {[
-                          "Technology",
-                          "Business",
-                          "News",
-                          "Comedy",
-                          "Health",
-                          "Education",
-                        ].map((topic) => (
-                          <button
-                            key={topic}
-                            onClick={() => handleSearch(topic)}
-                            className="px-3 py-1.5 bg-gray-700/50 hover:bg-gray-700 rounded-lg text-sm transition-colors"
-                          >
-                            {topic}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
                 </div>
               )}
 
