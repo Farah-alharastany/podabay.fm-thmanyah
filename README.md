@@ -1,12 +1,20 @@
-﻿# podabay.fm-thmanyah
+# podabay.fm-thmanyah
 
-# 🎧 Podcast NestJS Backend
+---
+
+# 🎧 Podcast Platform – Full Stack Setup Guide
+
+This repository contains both the **Backend (NestJS)** and the **Frontend (Next.js)** for the Podcast platform.
+
+---
+
+# 🧠 Backend – NestJS
 
 This is the backend service for the Podcast platform, built with **NestJS**, **TypeORM**, and **PostgreSQL**.
 
 ---
 
-## ✅ Requirements
+## ✅ Backend Requirements
 
 Make sure you have the following installed on your machine:
 
@@ -16,7 +24,7 @@ Make sure you have the following installed on your machine:
 
 ---
 
-## ⚙️ Project Setup
+## ⚙️ Backend Project Setup
 
 ### 1️⃣ Install Dependencies
 
@@ -86,7 +94,7 @@ http://localhost:3000
 
 ---
 
-## ✅ Verify Successful Run
+## ✅ Verify Successful Backend Run
 
 * You should see a message like:
 
@@ -102,18 +110,18 @@ Nest application successfully started
 
 ---
 
-## 📦 Useful Scripts
+## 📦 Useful Backend Scripts
 
 ```json
 "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
 "migration:generate": "npm run typeorm -- -d src/data-source.ts migration:generate src/migrations/init",
 "migration:run": "npm run typeorm -- -d src/data-source.ts migration:run",
-"db:create": "psql -U postgres -c \"CREATE DATABASE podcast_db\""
+"db:create": "psql -U postgres -c \\\"CREATE DATABASE podcast_db\\\""
 ```
 
 ---
 
-## 🛑 Common Issues
+## 🛑 Common Backend Issues
 
 * ❌ **Database connection error**
 
@@ -126,7 +134,7 @@ Nest application successfully started
 
 ---
 
-## 🧑‍💻 Tech Stack
+## 🧑‍💻 Backend Tech Stack
 
 * **NestJS**
 * **TypeORM**
@@ -135,3 +143,98 @@ Nest application successfully started
 ---
 
 ✅ The backend is now ready for use with any frontend such as **Next.js**, **React**, or **Angular**.
+
+---
+
+---
+
+# 🎨 Frontend – Next.js
+
+This is the frontend of the Podcast platform, built using **Next.js**, **React**, and **Tailwind CSS**.
+
+---
+
+## ✅ Frontend Requirements
+
+Make sure you have the following installed:
+
+* **Node.js** (v18 or later recommended)
+* **npm**
+
+---
+
+## ⚙️ Frontend Project Setup
+
+### 1️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 2️⃣ Create `.env` File for Frontend
+
+Create a `.env.local` file in the frontend root and add:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+> ⚠️ This should match your backend URL.
+
+---
+
+## 🚀 Running the Frontend
+
+### 3️⃣ Run in Development Mode
+
+```bash
+npm run dev
+```
+
+The frontend will start on:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## ✅ Verify Successful Frontend Run
+
+* Open your browser and go to:
+
+```text
+http://localhost:3000
+```
+
+* Make sure:
+
+  * Pages load correctly
+  * API requests are connecting to the backend
+
+---
+
+## 🛑 Common Frontend Issues
+
+* ❌ **API not connecting**
+
+  * Make sure `NEXT_PUBLIC_API_URL` is correct
+  * Make sure the backend is running
+
+* ❌ **Environment variables not loading**
+
+  * Restart the dev server after editing `.env.local`
+
+---
+
+## 🧑‍🎨 Frontend Tech Stack
+
+* **Next.js**
+* **React**
+* **Tailwind CSS**
+
+---
+
+✅ The frontend is now ready to communicate with the NestJS backend successfully.
