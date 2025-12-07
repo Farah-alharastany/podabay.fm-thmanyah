@@ -52,4 +52,4 @@ export type ProductCardType =
   | "compact"
   | "list"
   | "grid";
-export type containerType = "standard" | "special";
+export type containerType = "podcasts-container" | "episodes-container";

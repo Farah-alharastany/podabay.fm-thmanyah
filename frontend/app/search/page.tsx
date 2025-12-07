@@ -3,26 +3,10 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductsContainer from "../components/Products/ProductsContainer";
-import Loader from "../components/Loader/Loader";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Loader from "../components/Loader/LoaderContainer";
+import Sidebar from "../components/Sidebar/SidebarContainer";
 import { Product } from "../components/types";
 import HeaderContainer from "../components/Header/HeaderContainer";
-
-// interface Podcast {
-//   id: number;
-//   title: string;
-//   artist: string;
-//   image: string;
-//   feedUrl: string;
-// }
-
-// interface Episode {
-//   id: number;
-//   title: string;
-//   description: string;
-//   audioUrl: string;
-//   releaseDate: string;
-// }
 
 export default function SearchPage() {
   const [podcasts, setPodcasts] = useState<Product[]>([]);
@@ -141,7 +125,7 @@ export default function SearchPage() {
                   <ProductsContainer
                     title={`Top podcasts for ${searchTerm}`}
                     products={podcasts}
-                    containerType="standard"
+                    containerType="podcasts-container"
                     cardTypeToShow="standard"
                   />
                 </div>
@@ -152,9 +136,9 @@ export default function SearchPage() {
                   <ProductsContainer
                     title={`Top episodes for ${searchTerm}`}
                     products={episodes}
-                    containerType="special"
+                    containerType="episodes-container"
                     availableViews={["grid", "scroll", "list", "compact"]}
-                    cardTypeToShow="compact"
+                    cardTypeToShow="standard"
                   />
                 </div>
               )}

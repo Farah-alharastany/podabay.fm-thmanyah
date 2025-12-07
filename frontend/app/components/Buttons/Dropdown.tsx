@@ -81,11 +81,11 @@ const Dropdown: React.FC<DropdownProps> = ({ items, fillColor }) => {
             style={{
               top: buttonRef.current?.getBoundingClientRect().bottom ?? 0,
               left: buttonRef.current
-                ? buttonRef.current.getBoundingClientRect().left - 150
+                ? buttonRef.current.getBoundingClientRect().left - 170
                 : 0,
             }}
           >
-            <ul className="dropdown bg-gradient-to-tr from-[#404080] to-[#6B4080] rounded-lg shadow-xl text-white p-2 border border-white/10 min-w-[180px]">
+            <ul className="dropdown bg-gradient-to-tr from-[#404080] to-[#6B4080] rounded-lg shadow-xl text-white p-2 border border-white/10 min-w-[200px]">
               {items.map((item, index) => (
                 <React.Fragment key={`${item.label}-${index}`}>
                   <li className="px-3 py-2 text-xs rounded-md hover:bg-black/30 transition cursor-pointer">

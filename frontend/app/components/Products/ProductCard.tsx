@@ -109,13 +109,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  if (cardType === "grid" && containerType === "special") {
+  if (cardType === "grid" && containerType === "episodes-container") {
     return (
       <div
-        className={`${styles.compactCard} flex items-start gap-3 !rounded-md`}
+        className={`${styles.compactCard} flex items-start gap-3 !rounded-md  min-h-[120px] min-w-[300px]`}
       >
         {/* صورة صغيرة */}
-        <div className="relative w-24 h-27 flex-shrink-0">
+        <div className="relative w-28 h-32 flex-shrink-0">
           <Image
             src={imageUrl}
             alt={title}

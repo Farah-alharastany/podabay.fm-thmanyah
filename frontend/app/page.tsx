@@ -1,15 +1,12 @@
-"use client";
-
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar/SidebarContainer";
 import ProductsContainer from "./components/Products/ProductsContainer";
 import type { DropdownItem, Product } from "./components/types";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import firstContainerData from "./data/first-container-data.json";
-import secondContainerData from "./data/second-container-data.json"
-import thirdContainerData from "./data/third-container-data.json"
+import secondContainerData from "./data/second-container-data.json";
+import thirdContainerData from "./data/third-container-data.json";
 import fourthContainerData from "./data/fourth-container-data.json";
 export default function Home() {
-  
   const fourthContainerCustomDropdown: DropdownItem[] = [
     { label: "Play episode" },
     { label: "Add to my queue", hasDivider: true },
@@ -28,7 +25,7 @@ export default function Home() {
           title="Trending podcasts in all genre"
           description="The most popular podcasts overall  now. Last updated an hour ago."
           products={firstContainerData}
-          containerType="standard"
+          containerType="podcasts-container"
           goToLink="/trending"
           goToLabel="Go to Trending Podcasts"
           cardTypeToShow="standard"
@@ -39,7 +36,7 @@ export default function Home() {
           title="Browse by genre"
           description="The most popular podcasts and episodes now categorized by genre. Last updated an hour ago."
           products={secondContainerData}
-          containerType="standard"
+          containerType="podcasts-container"
           goToLink="/recommended"
           goToLabel="Go to browse by genre"
           cardTypeToShow="image-only"
@@ -50,7 +47,7 @@ export default function Home() {
           title="Promoted Podcasts"
           description="These podcasts are promoted by podcasters, listeners, and the Podbay team."
           products={thirdContainerData}
-          containerType="standard"
+          containerType="podcasts-container"
           goToLink="/new-releases"
           goToLabel="Browse New Releases"
           cardTypeToShow="button"
@@ -61,9 +58,11 @@ export default function Home() {
           title="Trending episodes in all genres"
           description="The most popular podcast episodes overall  now. Last updated an hour ago."
           products={fourthContainerData}
-          containerType="special"
+          containerType="episodes-container"
           availableViews={["grid", "scroll", "list", "compact"]}
           cardTypeToShow="grid"
+          goToLink="/"
+          goToLabel="Go to Trending episodes in.."
           cardDropdownItems={fourthContainerCustomDropdown}
         />
       </div>

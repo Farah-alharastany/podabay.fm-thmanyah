@@ -1,5 +1,3 @@
-"use client";
-
 import React, { forwardRef } from "react";
 import ProductCard from "./ProductCard";
 import type {
@@ -17,7 +15,7 @@ const ProductsList = forwardRef<HTMLDivElement, ProductsListProps>(
       view,
       cardType = "standard",
       dropdownItems,
-      containerType = "standard",
+      containerType = "podcasts-container",
     },
     ref
   ) => {
@@ -31,15 +29,15 @@ const ProductsList = forwardRef<HTMLDivElement, ProductsListProps>(
           return `${baseClass} flex flex-col`;
 
         case "grid":
-          if (containerType === "special") {
-            return `${baseClass} grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 mx-4 gap-4 special-grid`;
-          } else if (containerType === "standard") {
+          if (containerType === "episodes-container") {
+            return `${baseClass} grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 mx-4 gap-4 episodes-container-grid`;
+          } else if (containerType === "podcasts-container") {
             return `${baseClass} grid grid-cols-2 mx-4 md:grid-cols-3 lg:grid-cols-6 gap-4 standard-grid`;
           }
 
         case "compact":
-          if (containerType === "special") {
-            return `${baseClass} grid grid-cols-1 !py-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 special-compact`;
+          if (containerType === "episodes-container") {
+            return `${baseClass} grid grid-cols-1 !py-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 episodes-container-compact`;
           }
           else
           return `${baseClass} grid grid-cols-1 mx-4 md:grid-cols-2 lg:grid-cols-4 gap-4 standard-compact`;

@@ -1,5 +1,3 @@
-// components/HeaderContainer.tsx
-"use client";
 import React from "react";
 import Searchbar from "./Searchbar";
 import NavigationArrows from "../Buttons/NavigationArrows";

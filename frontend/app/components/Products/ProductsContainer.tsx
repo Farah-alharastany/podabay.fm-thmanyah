@@ -20,7 +20,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
   containerType,
   goToLink,
   goToLabel,
-  availableViews = containerType === "special"
+  availableViews = containerType === "episodes-container"
     ? ["grid", "scroll", "list", "compact"]
     : ["scroll", "grid"],
   customDropdownItems,
@@ -37,7 +37,6 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
     } else if (view === "list") {
       return "list";
     }
-
     return cardTypeToShow;
   };
 
@@ -49,8 +48,10 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
     }
 
     const items: DropdownItem[] = [];
+      console.log("containerType:", containerType);
 
-    if (containerType === "standard") {
+    if (containerType === "podcasts-container") {
+
       if (
         availableViews.includes("scroll") &&
         availableViews.includes("grid")
@@ -74,7 +75,7 @@ const ProductsContainer: React.FC<ProductsContainerProps> = ({
           href: goToLink,
         });
       }
-    } else if (containerType === "special") {
+    } else if (containerType === "episodes-container") {
       if (
         availableViews.includes("grid") &&
         availableViews.includes("scroll")
