@@ -173,21 +173,9 @@ npm install
 
 ---
 
-### 2️⃣ Create `.env` File for Frontend
-
-Create a `.env.local` file in the frontend root and add:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3000
-```
-
-> ⚠️ This should match your backend URL.
-
----
-
 ## 🚀 Running the Frontend
 
-### 3️⃣ Run in Development Mode
+### 2️⃣ Run in Development Mode
 
 ```bash
 npm run dev
@@ -216,19 +204,6 @@ http://localhost:3000
 
 ---
 
-## 🛑 Common Frontend Issues
-
-* ❌ **API not connecting**
-
-  * Make sure `NEXT_PUBLIC_API_URL` is correct
-  * Make sure the backend is running
-
-* ❌ **Environment variables not loading**
-
-  * Restart the dev server after editing `.env.local`
-
----
-
 ## 🧑‍🎨 Frontend Tech Stack
 
 * **Next.js**
@@ -238,4 +213,5 @@ http://localhost:3000
 ---
 
 ✅ The frontend is now ready to communicate with the NestJS backend successfully.
+
 
