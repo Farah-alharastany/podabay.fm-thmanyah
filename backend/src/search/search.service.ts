@@ -17,7 +17,7 @@ export class SearchService {
   ) {}
 
   async searchAndSave(term: string) {
-    // 1. البحث عن البودكاستات
+    // 1. Search for podcasts using iTunes API
     const podcastUrl = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&media=podcast`;
     const podcastResponse = await lastValueFrom(
       this.httpService.get(podcastUrl),
@@ -29,10 +29,12 @@ export class SearchService {
     for (const item of podcastResults) {
       if (!item.feedUrl) continue;
 
+      // Check if the podcast already exists in the database
       let podcast = await this.podcastRepo.findOne({
         where: { itunesId: item.trackId },
       });
 
+      // If it doesn't exist, create and save it
       if (!podcast) {
         podcast = this.podcastRepo.create({
           itunesId: item.trackId,
@@ -47,7 +49,7 @@ export class SearchService {
       podcasts.push(podcast);
     }
 
-    // 2. البحث عن حلقات البودكاست (باستخدام نفس المصطلح)
+    // 2. Search for podcast episodes using the same term
     const episodesUrl = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&media=podcast&entity=podcastEpisode`;
     const episodesResponse = await lastValueFrom(
       this.httpService.get(episodesUrl),
@@ -57,11 +59,13 @@ export class SearchService {
     const episodes: any[] = [];
 
     for (const ep of episodeResults) {
+      // Check if the episode already exists
       const exists = await this.episodeRepo.findOne({
         where: { itunesId: ep.trackId },
       });
 
       if (!exists) {
+        // Create and save new episode
         const episode = this.episodeRepo.create({
           itunesId: ep.trackId,
           title: ep.trackName,
@@ -79,12 +83,12 @@ export class SearchService {
         const savedEp = await this.episodeRepo.save(episode);
         episodes.push(savedEp);
       } else {
-        // ✅ أضيفي الحلقة الموجودة أيضًا إلى النتائج
+        // Add existing episode to the results as well
         episodes.push(exists);
       }
     }
 
-    // 3. إرجاع النتائج في نفس الرد
+    // 3. Return both podcasts and episodes in the same response
     return {
       podcasts: podcasts,
       episodes: episodes,
