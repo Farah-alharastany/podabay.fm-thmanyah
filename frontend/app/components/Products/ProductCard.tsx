@@ -7,21 +7,13 @@ import { ProductCardProps } from "../types";
 
 // Predefined dynamic colors for artists
 const DYNAMIC_COLORS = [
-  "#FF6B8B", // Pink
-  "#4ECDC4", // Turquoise
-  "#FFD166", // Yellow
-  "#06D6A0", // Green
-  "#118AB2", // Blue
-  "#EF476F", // Light Pink
-  "#7209B7", // Purple
-  "#F3722C", // Orange
-  "#577590", // Grayish Blue
-  "#90BE6D", // Light Green
-  "#F94144", // Red
-  "#43AA8B", // Teal
-  "#F8961E", // Dark Orange
-  "#5778A8", // Medium Blue
-  "#277DA1", // Ocean Blue
+  "#4DAEE8", // Blue
+  "#6DC086", // Green
+  "#CF8163", // Orange
+  "#FF78C9", // Pink
+  "#E86491", // Pink
+  "#7B7BF0", // Purple
+  "#E3BD71", // Yellow
 ];
 
 // Assign a color to artist based on their ID
@@ -70,7 +62,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   const itemsToUse = dropdownItems || defaultDropdownItems;
 
-  // Image-only card type
   if (cardType === "image-only") {
     return (
       <Link
@@ -97,7 +88,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  // Button card type
   if (cardType === "button") {
     return (
       <div className="relative w-36 h-36 flex-shrink-0">
@@ -114,13 +104,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  // Grid card for episodes container
   if (cardType === "grid" && containerType === "episodes-container") {
     return (
       <div
         className={`${styles.compactCard} flex items-start gap-3 !rounded-md  min-h-[120px] min-w-[300px]`}
+        style={{ "--theme-color": artistColor } as React.CSSProperties}
       >
-        {/* Small image */}
         <div className="relative w-28 h-32 flex-shrink-0">
           <Image
             src={imageUrl}
@@ -132,10 +121,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
         <div className="content flex justify-between w-full p-2  h-full">
           <div className="flex flex-col max-w-full">
-            <span
-              className="text-xs font-medium line-clamp-1"
-              style={{ color: artistColor }}
-            >
+            <span className="text-xs font-medium line-clamp-1"   style={{ color: artistColor }}
+>
               {artist || collectionName || "Unknown"}
             </span>
             <p className="text-white text-sm font-medium line-clamp-2">
@@ -148,7 +135,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </div>
 
-          {/* Dropdown for compact card */}
           {showDropdown && (
             <div>
               <Dropdown items={itemsToUse} fillColor={"#6A7282"} />
@@ -159,7 +145,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  // List card type
   if (cardType === "list") {
     return (
       <div className="group flex items-center gap-3 hover:bg-black/20 px-4 cursor-pointer">
@@ -192,10 +177,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <p className="text-white text-sm font-medium line-clamp-1 hover:underline cursor-pointer">
               {title}
             </p>
-            <span
-              className="text-xs font-medium line-clamp-1 mt-3"
-              style={{ color: artistColor }}
-            >
+            <span className="text-xs font-medium line-clamp-1 mt-3"   style={{ color: artistColor }}
+>
               {artist || collectionName || "Unknown"}
             </span>
             <div className="text-xs text-gray-200 mt-1 lg:block hidden">
@@ -221,7 +204,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  // Compact card type
   if (cardType === "compact") {
     return (
       <div className="group flex items-center gap-3 h-[60px] hover:bg-black/20 px-4 cursor-pointer border-b border-b-gray-800">
@@ -257,10 +239,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <p className="text-white text-sm font-medium line-clamp-1 hover:underline cursor-pointer">
               {title}
             </p>
-            <span
-              className="text-xs font-medium line-clamp-1"
-              style={{ color: artistColor }}
-            >
+            <span className="text-xs font-medium line-clamp-1"   style={{ color: artistColor }}
+>
               {artist || collectionName || "Unknown"}
             </span>
           </div>
@@ -275,7 +255,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  // Standard card type
   if (cardType === "standard") {
     return (
       <Link
