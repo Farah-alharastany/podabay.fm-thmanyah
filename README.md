@@ -164,12 +164,6 @@ Nest application successfully started
 
 ---
 
-✅ The backend is now ready for use with any frontend such as **Next.js**, **React**, or **Angular**.
-
----
-
----
-
 # 🎨 Frontend – Next.js
 
 This is the frontend of the Podcast platform, built using **Next.js**, **React**, and **Tailwind CSS**.
@@ -248,4 +242,5 @@ http://localhost:3000
 ---
 
 ✅ The frontend is now ready to communicate with the NestJS backend successfully.
+
 
